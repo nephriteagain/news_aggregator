@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  html {
+    font-size: 12px;
+    background-color: #F6F1F1;
+    overflow-x: hidden;
+  }
+  * {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 576px) {
+    html {
+      font-size: 16px;
+    }
+  }
+}

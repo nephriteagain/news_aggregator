@@ -1,4 +1,4 @@
-interface params {
+export interface params {
   q?: string,
   searchIn?: string,
   sources?: string,
@@ -11,9 +11,10 @@ interface params {
   pageSize?: string,
   page?: string,
   country?: string,
-  category?: ('business'|'entertainment'|'general'|'health'|'science'|'sports'|'technology'),
-
+  category?: string
+  
 }
+
 
 
 // to be added types
@@ -21,6 +22,9 @@ export function queryHelper(params : params, endpoint : string) {
   let queryString = ''
         if (params) {
           for (const [key, value] of Object.entries(params)) {
+            if (queryString) {
+              queryString = queryString.concat('&')
+            }
             if (key) {
               queryString = queryString.concat(`${key}=`)
             }

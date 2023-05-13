@@ -1,18 +1,15 @@
-// import { useGetAllNewsQuery, useGetTopHeadLinesQuery } from './features/apiSlice/newsApi'
-import { motion } from 'framer-motion'
 
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 import NewsFeed from './components/NewsFeed'
+import NewsFilter from './components/NewsFilter'
+import type { params } from './lib/queryHelper'
 
 import './App.css'
 
 function App() {
-  
-
-
-
-
-  
+  const [ queryParams, setQueryParams ] = useState<params>({country: 'us'})
 
   return (
   <>
@@ -25,7 +22,8 @@ function App() {
     >
       News Aggregator
     </motion.header>
-    <NewsFeed />
+    <NewsFilter queryParams={queryParams} setQueryParams={setQueryParams} />
+    <NewsFeed queryParams={queryParams} />
   </>
   )
 }
